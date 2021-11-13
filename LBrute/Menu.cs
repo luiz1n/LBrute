@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace LBrute
 {
     class Menu
     {
-
+        public static int total = File.ReadAllLines("usuarios.txt").Length;
         public static void Show() {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
@@ -43,8 +44,8 @@ namespace LBrute
             Menu.Show();
         }
 
-        public static void UpdateTitle(){ 
-            
+        public static void UpdateTitle(){
+            Console.Title = $"LBrute 🔑 Crackeadas: {Brute.crackeadas} | Inválidas: {Brute.invalidas} | Total: {total} | Hotel: {Brute.hotel}";
         }
 
     }

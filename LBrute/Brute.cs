@@ -8,7 +8,7 @@ namespace LBrute
 {
     class Brute
     {
-        public static int crackeadas, invalidas, total;
-        public static string hotel;
+        public static int crackeadas, invalidas;
+        public static string hotel = "?";
     }
 }
