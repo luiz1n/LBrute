@@ -42,28 +42,34 @@ namespace LBrute
                 {
                     case 1:
                         Brute.hotel = "Habblive";
+                        Brute.ConfigureHotel();
                         break;
                     case 2:
                         Brute.hotel = "Lella";
+                        Brute.ConfigureHotel();
                         break;
                     case 3:
                         Brute.hotel = "Habbok";
+                        Brute.ConfigureHotel();
                         break;
                     case 4:
                         Brute.hotel = "Iron";
+                        Brute.ConfigureHotel();
                         break;
                     default:
                         break;
                 }
+                Brute.Start();
                 UpdateTitle();
                 Show();
+                Brute.form.Clear();
             }
             catch { Show(); }
         }
 
-        public static void UpdateTitle(){
-            Console.Title = $"LBrute 🔑 Crackeadas: {Brute.crackeadas} | Inválidas: {Brute.invalidas} | Total: {total} | Hotel: {Brute.hotel}";
-        }
+        public static void UpdateTitle()
+            => Console.Title = $"LBrute 🔑 Crackeadas: {Brute.crackeadas} | Inválidas: {Brute.invalidas} | Total: {total} | Hotel: {Brute.hotel}";
+        
 
     }
 }

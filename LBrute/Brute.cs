@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,8 +15,10 @@ namespace LBrute
         public static string hotel = "?";
 
         public static string LoginUrl, MeUrl;
+        public static Dictionary<string, string> form = new();
 
-        public static void ConfigureHotel(){ 
+        public static void ConfigureHotel(){
+
             switch (hotel.ToLower()){
                 case "habblive":
                     LoginUrl = "https://habblive.in/";
@@ -33,27 +36,38 @@ namespace LBrute
                     LoginUrl = "https://ironhotel.biz/callback/bruteLogin";
                     MeUrl = "https://ironhotel.biz/me";
                     break;
-
-
-            }
-            if(hotel.ToLower() == "habblive"){
-                LoginUrl = "https://habblive.in/";
-                MeUrl = "https://habblive.in/me";
             }
         }
 
-
-        private async static void InitBrute( string username, string hotel, Dictionary<string, string> form){
-            foreach (var password in File.ReadAllLines("senhas.txt")){
-                
-                
+        private static async void Checker(Dictionary<string, string> form) 
+        {
+            using (HttpClient client = new HttpClient()) 
+            {
 
             }
         }
 
-        public static void Start(string hotel, Dictionary<string, string> form ){
+        private static async void Habblive(string username, string password) 
+        {
+            
+        }
+
+        private static async void Lella(string username, string password) { }
+        private static async void Habbok(string username, string password) { }
+        private static async void Iron(string username, string password) { }
+
+
+        private static void InitBrute(string username){
+            foreach (var password in File.ReadAllLines("senhas.txt")) {
+                
+
+
+            }
+        }
+
+        public static void Start(){
             foreach(var username in File.ReadAllLines("usuarios.txt")){
-                InitBrute(username, hotel, form);
+                InitBrute(username);
             }
         }
 
