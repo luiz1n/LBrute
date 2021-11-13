@@ -30,11 +30,9 @@ namespace LBrute
                      github.com/luiz1n
                                                             
 [1] = Habblive
-[2] = Habblet
-[3] = Lella
-[4] = AgeHotel
-[5] = Habbox
-[6] - Iron
+[2] = Lella
+[3] = Habbok
+[4] = Iron
 ");
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Magenta;
@@ -46,18 +44,12 @@ namespace LBrute
                         Brute.hotel = "Habblive";
                         break;
                     case 2:
-                        Brute.hotel = "Habblet";
-                        break;
-                    case 3:
                         Brute.hotel = "Lella";
                         break;
+                    case 3:
+                        Brute.hotel = "Habbok";
+                        break;
                     case 4:
-                        Brute.hotel = "AgeHotel";
-                        break;
-                    case 5:
-                        Brute.hotel = "Habbox";
-                        break;
-                    case 6:
                         Brute.hotel = "Iron";
                         break;
                     default:
