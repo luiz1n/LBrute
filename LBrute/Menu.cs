@@ -11,9 +11,11 @@ namespace LBrute
     {
         public static int total = File.ReadAllLines("usuarios.txt").Length;
         public static void Show() {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(@"
+            try
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(@"
  __        _______                         __               
 |  \      |       \                       |  \              
 | $$      | $$$$$$$\  ______   __    __  _| $$_     ______  
@@ -32,16 +34,39 @@ namespace LBrute
 [3] = Lella
 [4] = AgeHotel
 [5] = Habbox
+[6] - Iron
 ");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write("=> ");
-            int option = int.Parse(Console.ReadLine());
-            switch (option){
-                case 1:
-                    break;
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("=> ");
+                int option = int.Parse(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Brute.hotel = "Habblive";
+                        break;
+                    case 2:
+                        Brute.hotel = "Habblet";
+                        break;
+                    case 3:
+                        Brute.hotel = "Lella";
+                        break;
+                    case 4:
+                        Brute.hotel = "AgeHotel";
+                        break;
+                    case 5:
+                        Brute.hotel = "Habbox";
+                        break;
+                    case 6:
+                        Brute.hotel = "Iron";
+                        break;
+                    default:
+                        break;
+                }
+                UpdateTitle();
+                Show();
             }
-            Menu.Show();
+            catch { Show(); }
         }
 
         public static void UpdateTitle(){
