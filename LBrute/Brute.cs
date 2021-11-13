@@ -48,9 +48,12 @@ namespace LBrute
                     crackeadas++;
                     File.AppendAllText("crackeadas.txt", $"[{hotel}] - Usuário: {username} - Senha: {password}\n");
                 }
-                else 
+                else
+                {
                     invalidas++;
-                
+                    File.AppendAllText("invalidas.txt", $"[{hotel}] - Usuário: {username} - Senha: {password}\n");
+                }
+
                 Menu.UpdateTitle();
             }
         }
