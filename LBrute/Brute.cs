@@ -50,7 +50,7 @@ namespace LBrute
                 if (body.Contains(username))
                 {
                     crackeadas++;
-                    File.AppendAllText("crackeadas.txt", $"[{hotel}] - Usuário: {username} - Senha: {password}");
+                    File.AppendAllText("crackeadas.txt", $"[{hotel.First().ToString().ToUpper()}{hotel.Substring(1)}] - Usuário: {username} - Senha: {password}" + Environment.NewLine);
                 }
                 else 
                     invalidas++;
