@@ -13,7 +13,7 @@ namespace LBrute
     {
         public static int crackeadas, invalidas;
         public static string hotel = "?";
-        public static bool executando;
+        public static bool executando = true;
         public static string LoginUrl, MeUrl;
         public static Dictionary<string, string> form = new();
 
