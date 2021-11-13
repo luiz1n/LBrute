@@ -33,6 +33,10 @@ namespace LBrute
 [2] = Lella
 [3] = Habbok
 [4] = Iron
+
+[5] -> Parar
+[6] => Retornar
+
 ");
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Magenta;
@@ -56,6 +60,12 @@ namespace LBrute
                         Brute.hotel = "Iron";
                         Brute.ConfigureHotel();
                         break;
+                    case 5:
+                        Brute.executando = false;
+                        break;
+                    case 6:
+                        Brute.executando = true;
+                        break;
                     default:
                         break;
                 }
@@ -68,7 +78,7 @@ namespace LBrute
         }
 
         public static void UpdateTitle()
-            => Console.Title = $"LBrute 🔑 Crackeadas: {Brute.crackeadas} | Inválidas: {Brute.invalidas} | Total: {total} | Hotel: {Brute.hotel}";
+            => Console.Title = $"LBrute 🔑 Crackeadas: {Brute.crackeadas} | Inválidas: {Brute.invalidas} | Total: {total} | Hotel: {Brute.hotel} / BruteForce ON: {Brute.executando}";
         
 
     }
