@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 
 namespace LBrute
@@ -99,7 +98,8 @@ namespace LBrute
         private static void InitBrute(string username){
             string hotel_ = hotel.ToLower();
 
-            foreach (var password in File.ReadAllLines("senhas.txt")) {
+            foreach (var password in File.ReadAllLines("senhas.txt")) 
+            {
 
                 if (!executando) return;
 
